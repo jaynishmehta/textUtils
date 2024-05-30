@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 import TextForms from './components/TextForms';
 
 
-function App() {
+export default function App() {
   return (
     <>
-    {/* use of props inside component navbar  */}
+     {/* use of props inside component navbar   */}
     {/* <Navbar title={"TextUtils"} about="About TextUtils"/>  */}
     {/* <Navbar/> */}
     <Navbar title={"TextUtils"} /> 
@@ -20,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+

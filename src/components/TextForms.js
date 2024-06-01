@@ -23,19 +23,27 @@ export default function TextForms(props) {
         let newtext = text;
         setText(reverseString(newtext))
     }
-    const[text,setText]= useState('Enter your text');
+    const[text,setText]= useState('');
     // text="new-text";// wrong way to change the state
     // setText("new text"); // correct way to set the state
   return (
-    <div>
-      <form>
+    <div className="container" style={{color: props.mode==='dark'? 'white':'#03300d'}}>
+      <div className="container my-2">
         <h1>{props.heading}</h1>
-        <div className="form-group">
-            <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+        <div className="mb-3">
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'grey':'white' ,color:props.mode==='dark'?'white':'#03300d'}} id="myBox" rows="8"></textarea>
         </div>
         <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
         <button className="btn btn-primary mx-2" onClick={handleReverse}>Convert to Reverse</button>
-    </form>
+      </div>
+      <div className="container my-3">
+      <h2>Your text summary </h2>
+      <p>{text.split(" ").length} words and {text.length} characters</p>
+      <p>{0.008 * text.split(" ").length} Minutes to read</p>
+      <h2>Preview</h2>
+      <p>{text.length>0?text:"Enter something to preview in Textbox"}</p>
+      </div>
+
     </div>
   )
 }

@@ -6,6 +6,7 @@ export default function TextForms(props) {
         console.log("Uppercase was clicked"+text);
         let newtext= text.toUpperCase();
         setText(newtext);
+        props.showalert("Convereted to uppercase","success");
     }
     const handleOnChange = (event)=>{
         console.log("Onchange");
@@ -22,6 +23,7 @@ export default function TextForms(props) {
         }
         let newtext = text;
         setText(reverseString(newtext))
+        props.showalert("String Reversed ","success");
     }
     const[text,setText]= useState('');
     // text="new-text";// wrong way to change the state

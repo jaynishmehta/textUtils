@@ -5,6 +5,14 @@ import TextForms from './components/TextForms';
 import About from './components/About';
 import Alert from './components/Alert';
 import React ,{ useState } from 'react';
+
+import {      //www.react router declarative
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
+
 function App() {
   const [mode,setMode]=useState('light'); //whether mode is dark enalbed or not
   const [alert ,setalert]=useState(null);
@@ -37,14 +45,23 @@ function App() {
      {/* use of props inside component navbar   */}
     {/* <Navbar title={"TextUtils"} about="About TextUtils"/>  */}
     {/* <Navbar/> */}
+    <Router>
     <Navbar title="TextUtils" mode = {mode} toggleMode={toggleMode}/> 
     <Alert alert={alert}/>
     {/* using container divsion built in div in boots for styling */}
     <div className="container my-3"> 
-       <TextForms heading="Enter the text to analyse" mode={mode} showalert={showalert}/> 
-       <About/>
+    <Routes>
+          <Route path="/about" element ={<About />}>
+            
+          </Route>
+          <Route path="/home" element={<TextForms heading="Enter the text to analyse" mode={mode} showalert={showalert}/>}>
+            
+          </Route>
+      </Routes>
+       {/* <TextForms heading="Enter the text to analyse" mode={mode} showalert={showalert}/>  */}
+       {/* <About/> */}
     </div>
-   
+   </Router>
   </>
   );
 }

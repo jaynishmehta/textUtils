@@ -51,7 +51,7 @@ function App() {
     {/* using container divsion built in div in boots for styling */}
     <div className="container my-3"> 
     <Routes>
-          <Route path="/about" element ={<About />}>
+          <Route path="/about" element ={<About mode={mode}/>} >
             
           </Route>
           <Route path="/home" element={<TextForms heading="Enter the text to analyse" mode={mode} showalert={showalert}/>}>
